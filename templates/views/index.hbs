@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/img/canvas.png">
+
+    <title>Index Page</title>
+  </head>
+  <body>
+    <div class="main-content">
+      {{>header}}
+
+      <p class="weather">Use this site to get your weather.</p>
+
+      <br>
+      <form>
+        <input id="addr" type="text" name="address" placeholder="Address, City, or Country">
+        <button type="submit" name="search">Search</button>
+      </form>
+      <br>
+      <p id="location"></p>
+      <p id="forecast"></p>
+    </div>
+
+    {{>footer}}
+    <script type="text/javascript" src="/js/app.js"></script>
+  </body>
+</html>

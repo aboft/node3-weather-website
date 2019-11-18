@@ -1,0 +1,33 @@
+/etc/squid/squid.conf.bak:acl localnet src 0.0.0.1-0.255.255.255	# RFC 1122 "this" network (LAN)
+/etc/squid/squid.conf.bak:acl localnet src 10.0.0.0/8		# RFC 1918 local private network (LAN)
+/etc/squid/squid.conf.bak:acl localnet src 100.64.0.0/10		# RFC 6598 shared address space (CGN)
+/etc/squid/squid.conf.bak:acl localnet src 169.254.0.0/16 	# RFC 3927 link-local (directly plugged) machines
+/etc/squid/squid.conf.bak:acl localnet src 172.16.0.0/12		# RFC 1918 local private network (LAN)
+/etc/squid/squid.conf.bak:acl localnet src 192.168.0.0/16		# RFC 1918 local private network (LAN)
+/etc/squid/squid.conf.bak:acl localnet src fc00::/7       	# RFC 4193 local private network range
+/etc/squid/squid.conf.bak:acl localnet src fe80::/10      	# RFC 4291 link-local (directly plugged) machines
+/etc/squid/squid.conf.bak:acl SSL_ports port 443
+/etc/squid/squid.conf.bak:acl Safe_ports port 80		# http
+/etc/squid/squid.conf.bak:acl Safe_ports port 21		# ftp
+/etc/squid/squid.conf.bak:acl Safe_ports port 443		# https
+/etc/squid/squid.conf.bak:acl Safe_ports port 70		# gopher
+/etc/squid/squid.conf.bak:acl Safe_ports port 210		# wais
+/etc/squid/squid.conf.bak:acl Safe_ports port 1025-65535	# unregistered ports
+/etc/squid/squid.conf.bak:acl Safe_ports port 280		# http-mgmt
+/etc/squid/squid.conf.bak:acl Safe_ports port 488		# gss-http
+/etc/squid/squid.conf.bak:acl Safe_ports port 591		# filemaker
+/etc/squid/squid.conf.bak:acl Safe_ports port 777		# multiling http
+/etc/squid/squid.conf.bak:acl CONNECT method CONNECT
+/etc/squid/squid.conf.bak:http_access deny !Safe_ports
+/etc/squid/squid.conf.bak:http_access deny CONNECT !SSL_ports
+/etc/squid/squid.conf.bak:http_access allow localhost manager
+/etc/squid/squid.conf.bak:http_access deny manager
+/etc/squid/squid.conf.bak:http_access allow localnet
+/etc/squid/squid.conf.bak:http_access allow localhost
+/etc/squid/squid.conf.bak:http_access deny all
+/etc/squid/squid.conf.bak:http_port 3128
+/etc/squid/squid.conf.bak:coredump_dir /var/cache/squid
+/etc/squid/squid.conf.bak:refresh_pattern ^ftp:		1440	20%	10080
+/etc/squid/squid.conf.bak:refresh_pattern ^gopher:	1440	0%	1440
+/etc/squid/squid.conf.bak:refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
+/etc/squid/squid.conf.bak:refresh_pattern .		0	20%	4320
