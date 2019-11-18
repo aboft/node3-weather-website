@@ -1,8 +1,3 @@
-//const geocode = require('../src/geocode.js')
-
-
-
-
 const weatherForm = document.querySelector('form')
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -24,18 +19,3 @@ weatherForm.addEventListener('submit', (e) => {
   })
 
 })
-
-
-// fetch(`http://localhost:3000/weather?address=${address}`).then((response) => {
-//   if (error){
-//     callback('Unable to connect to location services.', undefined)
-//   }else if (body.features.length === 0) {
-//     callback(`Unable to find ${body.query[0]}. Try another search.`, undefined)
-//   }else{
-//     callback(undefined, {
-//       latitude: body.features[0].center[1],
-//       longitude: body.features[0].center[0],
-//       location: body.features[0].place_name,
-//     })
-//   }
-// })
